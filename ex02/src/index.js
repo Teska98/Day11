@@ -20,34 +20,43 @@ function myArrayFunction(arr) {
  var prosCet;
  var sumPet;
  var prosPet;
+
  for (var i = 0; i < newTemps.lenght; i++) {
-      sumPon += newTemps;
-      prosPon = sumPon/4;
-    }
- for (var j = 0; j < newTemps.lenght; j++) {
-      sumUto += newTemps;
-      prosUto = sumUto/4;
-    }
- for (var m = 0; m < newTemps.lenght; m++) {
-      sumSri += newTemps;
-      prosSri = sumSri/4;
-    }
- for (var n = 0; n < newTemps.lenght; n++) {
-      sumCet += newTemps;
-      prosCet = sumCet/4;
-    }
- for (var p = 0; p < newTemps.lenght; p++) {
-      sumPet += newTemps;
-      prosPet = sumPet/4;
-    }
-  avergeDayTemp[0] = prosPon;
-  avergeDayTemp[1] = prosUto;
-  avergeDayTemp[2] = prosSri;
-  avergeDayTemp[3] = prosCet;
-  avergeDayTemp[4] = prosPet;
+      sumPon += newTemps[i];
+      
+ 	for (var j = 0; j < newTemps[i].lenght; j++) {
+          if (i >= 1) break;
+	  sumUto += newTemps[i][j];
+
+    	     for (var m = 0; m < newTemps[i][j].lenght; m++) {
+                if (j >= 1) break;
+      		sumSri += newTemps[i][j][m];
+
+ 		  for (var n = 0; n < newTemps[i][j][m].lenght; n++) {
+		    if (m >= 1) break;
+      		    sumCet += newTemps[i][j][m][n];
+
+                       for (var p = 0; p < newTemps[i][j][m][n].lenght; p++) {
+			 if (n >= 1) break;
+                         sumPet += newTemps[i][j][m][n][p];
+			}
+		}
+	}
+  }
+} 
+  prosPon = sumPon/4;
+  prosUto = sumUto/4;
+  prosSri = sumSri/4;
+  prosCet = sumCet/4;
+  prosPet = sumPet/4;
+  avergeDayTemp.push(prosPon);
+  avergeDayTemp.push(prosUto);
+  avergeDayTemp.push(prosSri);
+  avergeDayTemp.push(prosCet);
+  avergeDayTemp.push(prosPet);
   // Only change code above this line
   return avergeDayTemp;
 }
 
 console.log(myArrayFunction(arr));
-module.exports = myArrayFunction;
+module.export = myArrayFunction;
